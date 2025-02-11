@@ -18,7 +18,6 @@ def load_dnsbls(filename):
     try:
         with open(filename, "r") as f:
             for line in f:
-                # Strip whitespace and ignore empty lines or comments.
                 line = line.strip()
                 if line and not line.startswith("#"):
                     dnsbls.append(line)
@@ -28,11 +27,9 @@ def load_dnsbls(filename):
 
 def resolve_target(target):
     try:
-        # Check if the target is a valid IPv4 address.
         ip_obj = ipaddress.IPv4Address(target)
         return str(ip_obj)
     except ipaddress.AddressValueError:
-        # Not a valid IPv4 address; attempt to resolve as a domain.
         try:
             ip = socket.gethostbyname(target)
             print(f"Resolved domain '{target}' to IP {ip}")
@@ -49,11 +46,9 @@ def reverse_ip(ip):
 def check_dnsbl(dnsbl, reversed_ip):
     query = f"{reversed_ip}.{dnsbl}"
     try:
-        # A successful lookup means the IP is listed.
         result = socket.gethostbyname(query)
         return dnsbl, True, result
     except socket.gaierror:
-        # If the query fails (no DNS record), the IP is not listed.
         return dnsbl, False, None
 
 def main():
@@ -68,7 +63,6 @@ def main():
     )
     args = parser.parse_args()
 
-    # Load the DNSBL list from the provided file.
     try:
         dnsbls = load_dnsbls(args.dnsbls_file)
         if not dnsbls:
@@ -92,11 +86,9 @@ def main():
 
     print(f"\nChecking blacklist status for {ip} using {len(dnsbls)} DNSBL(s)...\n")
 
-    # Use a ThreadPoolExecutor to perform DNS lookups concurrently.
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = {executor.submit(check_dnsbl, dnsbl, reversed_ip): dnsbl for dnsbl in dnsbls}
 
-        # Process each completed future.
         for future in concurrent.futures.as_completed(futures):
             dnsbl = futures[future]
             try:
