@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-####################################################################
-# dnsbls.py - DNSBL-checker-python-utility                         #
-# copyright: (c) 2025 Anders Aarvik                                #
-# author: Anders Aarvik (aarvik92@gmail.com) and contributors      #
-# license: GPL licensed. See LICENSE                               #
-# description: I was just a bit tired of web interfaces            #
-####################################################################
+##########################################################################
+# dnsbls.py - DNSBL-checker-python-utility                               #
+# copyright: (c) 2025 Anders Aarvik                                      #
+# author: Anders Aarvik (anders.aarvik@kollektiv.email) and contributors #
+# license: GPL licensed. See LICENSE                                     #
+# description: I was just a bit tired of web interfaces                  #
+##########################################################################
 
 import socket
 import argparse
