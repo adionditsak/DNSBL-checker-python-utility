@@ -18,7 +18,7 @@ Blacklists grabbed from https://hetrixtools.com/blacklist-check. Previously used
 
     # Use with domains or IP addresses
     $ ./dnsbls.py domain.tld
-    $ ./bl 8.8.8.8
+    $ ./dnsbls.py 8.8.8.8
     
     # Pipe with other UNIX utils, eg. grep. Only blacklisted:
     $ ./dnsbls.py domain.tld | grep "LISTED"
