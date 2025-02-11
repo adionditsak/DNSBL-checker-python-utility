@@ -3,7 +3,7 @@ DNSBL checker Python utility. I was just a bit tired of web interfaces. Multithr
 
 ### Introduction
 
-This is multithreaded Python version of [blacklist-check-unix-linux-utility](https://github.com/adionditsak/blacklist-check-unix-linux-utility) and should work cross OS.
+This is multithreaded Python version of [blacklist-check-unix-linux-utility](https://github.com/adionditsak/blacklist-check-unix-linux-utility).
 
 Check DNS blacklists for domains and IP addresses in the shell.
 
